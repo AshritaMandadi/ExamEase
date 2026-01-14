@@ -17,7 +17,6 @@ public class StudentPanel extends JPanel {
         heading.setFont(new Font("Arial", Font.BOLD, 18));
         add(heading, BorderLayout.NORTH);
 
-        // Result area
         JTextArea result = new JTextArea();
         result.setEditable(false);
         result.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -27,7 +26,6 @@ public class StudentPanel extends JPanel {
 
         JScrollPane scrollPane = new JScrollPane(result);
 
-        // Button
         JButton checkBtn = new JButton("Check My Seat Allocation");
         checkBtn.setFocusPainted(false);
         checkBtn.setFont(new Font("Arial", Font.BOLD, 14));
@@ -44,17 +42,16 @@ public class StudentPanel extends JPanel {
 
             if (found.isPresent()) {
                 var a = found.get();
-                result.setText("✅ Allocation Found!\n\n"
+                result.setText("Allocation Found!\n\n"
                         + "Roll No: " + a.getRollNo() + "\n"
                         + "Name: " + a.getStudentName() + "\n"
                         + "Room: " + a.getRoomNo() + "\n"
                         + "Seat: " + a.getSeatNo());
             } else {
-                result.setText("❌ No allocation found yet.\n\nAsk Admin to generate allocation.");
+                result.setText(" No allocation found yet.\n\nAsk Admin to generate allocation.");
             }
         });
 
-        // Bottom panel (button container)
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         bottom.setBackground(new Color(245, 245, 245));
         bottom.add(checkBtn);
