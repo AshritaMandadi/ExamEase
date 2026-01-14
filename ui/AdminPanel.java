@@ -39,7 +39,6 @@ public class AdminPanel extends JPanel {
         add(tabs, BorderLayout.CENTER);
     }
 
-    // -------------------- Students Tab --------------------
     private JPanel createStudentTab() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -83,7 +82,7 @@ public class AdminPanel extends JPanel {
             studentModel.addRow(new Object[]{s.getName(), s.getRollNo(), s.getBranch(), s.getYear(), s.getPassword()});
 
             JOptionPane.showMessageDialog(this,
-                    "Student Added ✅\nUsername: " + s.getRollNo() + "\nPassword: " + s.getPassword());
+                    "Student Added \nUsername: " + s.getRollNo() + "\nPassword: " + s.getPassword());
 
             name.setText("");
             roll.setText("");
@@ -111,7 +110,6 @@ public class AdminPanel extends JPanel {
         return panel;
     }
 
-    // -------------------- Faculty Tab --------------------
     private JPanel createFacultyTab() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -151,7 +149,7 @@ public class AdminPanel extends JPanel {
             facultyModel.addRow(new Object[]{f.getName(), f.getFacultyId(), f.getDepartment(), f.getPassword()});
 
             JOptionPane.showMessageDialog(this,
-                    "Faculty Added ✅\nUsername: " + f.getFacultyId() + "\nPassword: " + f.getPassword());
+                    "Faculty Added \nUsername: " + f.getFacultyId() + "\nPassword: " + f.getPassword());
 
             fname.setText("");
             fid.setText("");
@@ -178,7 +176,6 @@ public class AdminPanel extends JPanel {
         return panel;
     }
 
-    // -------------------- Rooms Tab --------------------
     private JPanel createRoomTab() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -214,7 +211,7 @@ public class AdminPanel extends JPanel {
                 DataStore.rooms.add(r);
                 roomModel.addRow(new Object[]{r.getRoomNo(), r.getCapacity()});
 
-                JOptionPane.showMessageDialog(this, "Room Added ✅");
+                JOptionPane.showMessageDialog(this, "Room Added ");
 
                 roomNo.setText("");
                 cap.setText("");
@@ -243,7 +240,6 @@ public class AdminPanel extends JPanel {
         return panel;
     }
 
-    // -------------------- Allocation Tab --------------------
     private JPanel createAllocationTab() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
         panel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -260,7 +256,7 @@ public class AdminPanel extends JPanel {
 
             AllocationService.generateAllocation();
             refreshAllocationTable();
-            JOptionPane.showMessageDialog(this, "Allocation Generated ✅");
+            JOptionPane.showMessageDialog(this, "Allocation Generated ");
         });
 
         allocationModel = new DefaultTableModel(new Object[]{"Roll No", "Name", "Room", "Seat"}, 0);
@@ -284,7 +280,6 @@ public class AdminPanel extends JPanel {
         ));
     }
 
-    // -------------------- Button Styling Helpers --------------------
     private void stylePrimaryButton(JButton btn) {
         btn.setFocusPainted(false);
         btn.setFont(new Font("Arial", Font.BOLD, 14));
