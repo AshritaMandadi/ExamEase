@@ -19,7 +19,6 @@ public class LoginFrame extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Left Branding Panel
         JPanel left = new JPanel(new BorderLayout());
         left.setBackground(new Color(25, 118, 210));
         left.setPreferredSize(new Dimension(330, 520));
@@ -35,7 +34,6 @@ public class LoginFrame extends JFrame {
 
         left.add(brand, BorderLayout.CENTER);
 
-        // Right Login Panel (Scrollable so button never hides)
         JPanel right = new JPanel();
         right.setBackground(Color.WHITE);
         right.setBorder(new EmptyBorder(30, 40, 30, 40));
@@ -55,25 +53,21 @@ public class LoginFrame extends JFrame {
         right.add(subtitle);
         right.add(Box.createVerticalStrut(25));
 
-        // Role
         roleBox = new JComboBox<>(new String[]{"Admin", "Faculty", "Student"});
         roleBox.setPreferredSize(new Dimension(400, 32));
         roleBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 32));
         right.add(makeField("Select Role", roleBox));
 
-        // Username
         usernameField = new JTextField();
         usernameField.setPreferredSize(new Dimension(400, 32));
         usernameField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 32));
         right.add(makeField("Username / ID", usernameField));
 
-        // Password
         passwordField = new JPasswordField();
         passwordField.setPreferredSize(new Dimension(400, 32));
         passwordField.setMaximumSize(new Dimension(Integer.MAX_VALUE, 32));
         right.add(makeField("Password", passwordField));
 
-        // Login Button
         JButton loginBtn = new JButton("Login");
         loginBtn.setFocusPainted(false);
         loginBtn.setFont(new Font("Arial", Font.BOLD, 15));
@@ -89,10 +83,8 @@ public class LoginFrame extends JFrame {
         right.add(Box.createVerticalStrut(15));
         right.add(loginBtn);
 
-        // Add some space at bottom
         right.add(Box.createVerticalStrut(10));
 
-        // Scroll wrapper (fixes invisible button issue)
         JScrollPane scroll = new JScrollPane(right);
         scroll.setBorder(null);
         scroll.getVerticalScrollBar().setUnitIncrement(16);
@@ -134,11 +126,12 @@ public class LoginFrame extends JFrame {
         if (role.equals("Student")) ok = AuthService.loginStudent(username, password);
 
         if (ok) {
-            JOptionPane.showMessageDialog(this, "Login Successful ✅");
+            JOptionPane.showMessageDialog(this, "Login Successful ");
             dispose();
             new DashboardFrame(role, username).setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this, "Invalid Credentials ❌", "Login Failed", JOptionPane.ERROR_MESSAGE);
+        } 
+        else {
+            JOptionPane.showMessageDialog(this, "Invalid Credentials ", "Login Failed", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
