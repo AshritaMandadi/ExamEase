@@ -13,7 +13,6 @@ public class DashboardFrame extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Header
         JPanel header = new JPanel(new BorderLayout());
         header.setBackground(new Color(20, 20, 20));
         header.setBorder(new EmptyBorder(15, 20, 15, 20));
@@ -22,7 +21,6 @@ public class DashboardFrame extends JFrame {
         title.setForeground(Color.WHITE);
         title.setFont(new Font("Arial", Font.BOLD, 20));
 
-        // Right side: role + user + logout button
         JPanel rightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 12, 0));
         rightPanel.setOpaque(false);
 
@@ -33,7 +31,7 @@ public class DashboardFrame extends JFrame {
         JButton logoutBtn = new JButton("Logout");
         logoutBtn.setFocusPainted(false);
         logoutBtn.setFont(new Font("Arial", Font.BOLD, 13));
-        logoutBtn.setBackground(new Color(220, 53, 69)); // red
+        logoutBtn.setBackground(new Color(220, 53, 69)); 
         logoutBtn.setForeground(Color.WHITE);
         logoutBtn.setOpaque(true);
         logoutBtn.setBorderPainted(false);
@@ -47,8 +45,8 @@ public class DashboardFrame extends JFrame {
             );
 
             if (confirm == JOptionPane.YES_OPTION) {
-                dispose(); // close dashboard
-                new LoginFrame().setVisible(true); // open login again
+                dispose(); 
+                new LoginFrame().setVisible(true); 
             }
         });
 
@@ -60,7 +58,7 @@ public class DashboardFrame extends JFrame {
 
         add(header, BorderLayout.NORTH);
 
-        // Main Content
+        
         JPanel content = new JPanel(new BorderLayout());
         content.setBorder(new EmptyBorder(15, 15, 15, 15));
         content.setBackground(new Color(245, 245, 245));
